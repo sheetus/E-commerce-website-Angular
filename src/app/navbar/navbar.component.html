@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light bg-warning">
+  <a
+    class="navbar-brand col-5"
+    routerLink=""
+    routerLinkActive="active-link"
+    [routerLinkActiveOptions]="{ exact: true }"  
+    >Product</a
+  >
+  <!-- here i used routerActive link to tell the browser which one i currently in  -->
+
+  <div class="col-5">
+    <a routerLink="login" class="nav-link col-4"  routerLinkActive="active-link">Login</a>
+    <a routerLink="register" class="nav-link col-4" routerLinkActive="active-link">register</a>
+  </div>
+</nav>

@@ -1,0 +1,11 @@
+<div class="card h-10" >
+ 
+ <div class="card-body" (click)="redirectToProductDetails()">
+    <img [src]="product.image" class="card-img-top" >
+    <h5 class="card-text">{{product.name}}</h5>
+    <h6>{{product.price | currency:'EGP'}}</h6>
+<p>{{product.createdAt|date:'MMM/YYY'}}</p>
+<p class="stock" [ngStyle]="{'color': product.count>=1? 'green':'red'}">{{product.count>=1?"in stock":"out of stock"}}</p>
+ </div>
+ <button (click)="redirectToCart()" class="btn btn-success">Add to Cart</button>
+</div>

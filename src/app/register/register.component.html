@@ -1,0 +1,206 @@
+<section
+  class="vh-100 bg-image"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');
+  "
+>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form [formGroup]="registerForm" (ngSubmit)="Register()">
+                <!--  here we bind formGroup to registerForm to link the form to the typescript file. then we use (ngSubmit)="Function() " to tell the form what to do on submitting -->
+                <!-- name input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example1cg"
+                    >Your Name</label
+                  >
+                  <input
+                    type="text"
+                    id="form3Example1cg"
+                    class="form-control form-control-lg"
+                    formControlName="name"
+                  />
+                  <div
+                    *ngIf="
+                      registerForm.controls['name'].touched &&
+                      registerForm.controls['name'].invalid
+                    "
+                  >
+                    <div
+                      *ngIf="registerForm.controls['name'].errors?.['required']"
+                      [ngStyle]="{ color: 'red' }"
+                    >
+                      <!-- here i tell the form if the value of the input exists ? and have an error ?like required display this message  -->
+                      > Please Enter Your Name
+                    </div>
+                       </div>
+                 </div>
+                 <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example1cg"
+                      >username</label
+                    >
+                    <input
+                      type="text"
+                      id="form3Example1cg"
+                      class="form-control form-control-lg"
+                      formControlName="userName"
+                    />
+                    <div
+                      *ngIf="
+                        registerForm.controls['userName'].touched &&
+                        registerForm.controls['userName'].invalid
+                      "
+                    >
+                      <div
+                        *ngIf="registerForm.controls['userName'].errors?.['required']"
+                        [ngStyle]="{ color: 'red' }"
+                      >
+                        <!-- here i tell the form if the value of the input exists ? and have an error ?like required display this message  -->
+                        > Please Enter Your userName
+                      </div>
+                      <div
+                      *ngIf="registerForm.controls['userName'].errors?.['pattern']"
+                      [ngStyle]="{ color: 'red' }"
+                    >
+                      <!-- here i tell the form if the value of the input exists ? and have an error ?like Pattern display this message  -->
+                     username must has no spaces
+                    </div>
+                    </div>
+                  </div>
+                <!-- email input -->
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example3cg"
+                    >Your Email</label
+                  >
+                  <input
+                    type="text"
+                    id="form3Example3cg"
+                    class="form-control form-control-lg"
+                    formControlName="email"
+                  />
+                  <div
+                    *ngIf="
+                      registerForm.controls['email'].touched &&
+                      registerForm.controls['email'].invalid
+                    "
+                  >
+                    <div
+                      *ngIf="registerForm.controls['email'].errors?.['required']"
+                      [ngStyle]="{ color: 'red' }"
+                    >
+                      <!-- here i tell the form if the value of the input exists ? and have an error ?like required display this message  -->
+                      Please Enter Your email
+                    </div>
+                    <div
+                      *ngIf="registerForm.controls['email'].errors?.['pattern']"
+                      [ngStyle]="{ color: 'red' }"
+                    >
+                      <!-- here i tell the form if the value of the input exists ? and have an error ?like Pattern display this message  -->
+                      Write Your Email Correctly and it must be like this
+                      example@example.com
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example4cg"
+                 
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    id="form3Example4cg"
+                    class="form-control form-control-lg"
+                    formControlName="password"
+                  />
+                  <div
+                    *ngIf="
+                      registerForm.controls['password'].touched &&
+                      registerForm.controls['password'].invalid
+                    "
+                  >
+                    <div
+                      *ngIf="registerForm.controls['password'].errors?.['required']"
+                      [ngStyle]="{ color: 'red' }"
+                    >
+                      <!-- here i tell the form if the value of the input exists ? and have an error ?like required display this message  -->
+                      Please Enter Your password
+                    </div>
+                    <div
+                      *ngIf="registerForm.controls['password'].errors?.['pattern']"
+                      [ngStyle]="{ color: 'red' }"
+                    >
+                      <!-- here i tell the form if the value of the input exists ? and have an error ?like Pattern display this message  -->
+                      your password must contain at least 8 characters, One
+                      upperCase letter, one lowercase letter ,one digit , one
+                      special character
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example4cdg"
+                    >Repeat your password</label
+                  >
+                  <input
+                    type="password"
+                    id="form3Example4cdg"
+                    class="form-control form-control-lg"
+
+                    formControlName="confirmPassword"
+                  />
+                  <div
+                  *ngIf="
+                    registerForm.controls['confirmPassword'].touched &&
+                    registerForm.controls['confirmPassword'].invalid
+                  "
+                >
+                  <div
+                    *ngIf="registerForm.controls['confirmPassword'].errors?.['required']"
+                    [ngStyle]="{ color: 'red' }"
+                  >
+                    <!-- here i tell the form if the value of the input exists ? and have an error ?like required display this message  -->
+                    > Re-Enter your Password
+                  </div>
+                </div>
+                </div>
+
+                <div class="form-check d-flex justify-content-center mb-5">
+                  <input
+                    class="form-check-input me-2"
+                    type="checkbox"
+                    value=""
+                    id="form2Example3cg"
+                  />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in
+                    <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button
+                    type="button"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                  >
+                    Register
+                  </button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">
+                  Have already an account?
+                  <a href="#!" class="fw-bold text-body"><u>Login here</u></a>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
