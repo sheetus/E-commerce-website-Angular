@@ -29,7 +29,7 @@ const routes: Routes = [
     component:LoginComponent,
   }
   ,{
-    path:'cart/:id',
+    path:'cart',
     component:CartComponent,
     canActivate:[AuthGuardGuard],
   }

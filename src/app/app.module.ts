@@ -13,7 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CartComponent } from './cart/cart.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
+// import { SharedModule } from './shared/shared.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,15 +26,17 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
     RegisterComponent,
     LoginComponent,
     NotfoundComponent,
-    CartComponent
+    CartComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
-    
+    FormsModule,
+  HttpClientModule,
+  // SharedModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

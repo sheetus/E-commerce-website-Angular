@@ -1,1 +1,22 @@
-<p>{{activatedRouteId}}</p>
+<!-- <p>{{activatedRouteId}}</p> -->
+
+<div class="box">
+  <div class="row">
+    <div class="col-md-5">
+      <img src="{{ProductData.image}}" alt="" />
+    </div>
+    <div class="col-md-7 col-sm-12">
+      <div class="info">
+        <ul class="list-unstyled">
+          <li><strong>Title  :</strong><strong>{{ProductData.title}}</strong></li>
+          <li><strong>category  :</strong><strong>{{ProductData.category}}</strong></li>
+          <li><strong>Description  :</strong><strong>{{ProductData.description}}</strong></li>
+          <li><strong>Count  :</strong><strong>{{ProductData.rating.count}}</strong></li>
+          <li><strong>Rate  :</strong><strong>{{ProductData.rating.rate}}</strong></li>
+       
+          <li><strong>Price  :</strong><strong>{{ProductData.price}}</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,7 @@
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
 <nav class="navbar navbar-light bg-warning">
   <a
     class="navbar-brand col-5"
@@ -12,4 +16,8 @@
     <a routerLink="login" class="nav-link col-4"  routerLinkActive="active-link">Login</a>
     <a routerLink="register" class="nav-link col-4" routerLinkActive="active-link">register</a>
   </div>
+  <button routerLink="cart" class="btn btn-success">
+    <i class="fa-solid fa-cart-arrow-down " style="font-size: 3.125rem;"></i>
+    <div style="font-size: 15px;" class="num">{{productNumber}}</div>
+  </button>
 </nav>
