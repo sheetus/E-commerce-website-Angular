@@ -23,6 +23,7 @@ export class ProductcardComponent   {
   image:'',
   description:''
   };
+  @Output() prod= new EventEmitter();
   // @Output product= new EventEmitter();
  redirectToProductDetails(){
   this.router.navigate(['/product-details',this.product.id]);// here i used the method navigate to get me int the path //product-details and used this.id to get the specific id of the product 
@@ -35,10 +36,10 @@ export class ProductcardComponent   {
   this.router.navigate(['/cart',this.product.id]);
  }
  add(){
-
+this.prod.emit(this.product);
  }
  addToCart( product:any){
-this.cartService.addToCart(product)
+// this.cartService.addToCart()
  }
 
 }

@@ -1,3 +1,4 @@
+import { Product } from './../product';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
@@ -7,22 +8,22 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CartService {
 public cartProductList:any=[];
-private productList= new BehaviorSubject<any>([]);
-public productListContent=this.productList.asObservable()
- 
+private productList= new BehaviorSubject<any[]>([]);
+public productListContent=this.productList.asObservable();
 getProduct(){
- return this.productList.asObservable()
+  this.productList.asObservable()
 }
+
   setProduct(product :any){
     this.cartProductList.push(...product);
     this.productList.next(product);
   }
-  addToCart(product :any){
-    this.cartProductList.push(product);
-    this.productList.next(this.cartProductList);
-   this.getTotalPrice();
-   console.log(this.cartProductList);
-  }
+  // addToCart(product :any){
+  //   this.cartProductList.push(product);
+  //   this.productList.next(this.cartProductList);
+  //  this.getTotalPrice();
+  //  console.log(this.cartProductList);
+  // }
   getTotalPrice(): number{
     let subTotal=0;
     this.cartProductList.map((pro:any) => {

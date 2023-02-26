@@ -14,8 +14,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CartComponent } from './cart/cart.component';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductCardComponent } from './prodcuts/product-card/product-card.component';
 
-// import { SharedModule } from './shared/shared.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     NotfoundComponent,
     CartComponent,
+    ProductCardComponent,
     
   ],
   imports: [
@@ -36,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     FormsModule,
   HttpClientModule,
-  // SharedModule 
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,105 +16,10 @@
     <link rel="stylesheet" href="cart.component.css" />
   </head>
   <body>
-    <!-- 
+    
 
-    <section class="h-100 h-custom">
-        <div class="container h-100 py-5">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col">
-      
-              <div class="table-responsive">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col" class="h5">Shopping Bag</th>
-                      <th scope="col">Format</th>
-                      <th scope="col">Quantity</th>
-                      <th scope="col">Price</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">
-                        <div class="d-flex align-items-center">
-                          <img src="https://i.imgur.com/2DsA49b.webp" class="img-fluid rounded-3"
-                            style="width: 120px;" alt="Book">
-                          <div class="flex-column ms-4">
-                            <p class="mb-2">Thinking, Fast and Slow</p>
-                            <p class="mb-0">Daniel Kahneman</p>
-                          </div>
-                        </div>
-                      </th>
-                      <td class="align-middle">
-                        <p class="mb-0" style="font-weight: 500;">Digital</p>
-                      </td>
-                      <td class="align-middle">
-                        <div class="d-flex flex-row">
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                            <i class="fas fa-minus"></i>
-                          </button>
-      
-                          <input id="form1" min="0" name="quantity" value="2" type="number"
-                            class="form-control form-control-sm" style="width: 50px;" />
-      
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                            <i class="fas fa-plus"></i>
-                          </button>
-                        </div>
-                      </td>
-                      <td class="align-middle">
-                        <p class="mb-0" style="font-weight: 500;">$9.99</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row" class="border-bottom-0">
-                        <div class="d-flex align-items-center">
-                          <img src="https://i.imgur.com/Oj1iQUX.webp" class="img-fluid rounded-3"
-                            style="width: 120px;" alt="Book">
-                          <div class="flex-column ms-4">
-                            <p class="mb-2">Homo Deus: A Brief History of Tomorrow</p>
-                            <p class="mb-0">Yuval Noah Harari</p>
-                          </div>
-                        </div>
-                      </th>
-                      <td class="align-middle border-bottom-0">
-                        <p class="mb-0" style="font-weight: 500;">Paperback</p>
-                      </td>
-                      <td class="align-middle border-bottom-0">
-                        <div class="d-flex flex-row">
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                            <i class="fas fa-minus"></i>
-                          </button>
-      
-                          <input id="form1" min="0" name="quantity" value="1" type="number"
-                            class="form-control form-control-sm" style="width: 50px;" />
-      
-                          <button class="btn btn-link px-2"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                            <i class="fas fa-plus"></i>
-                          </button>
-                        </div>
-                      </td>
-                      <td class="align-middle border-bottom-0">
-                        <p class="mb-0" style="font-weight: 500;">$13.50</p>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-      
-            <div class="total">
-                Total:
-            </div>
-      
-            </div>
-          </div>
-        </div>
-      </section> -->
-    <ng-container *ngIf="product.length!=0">
+
+    <ng-container >
       <div class="card-table">
         <div class="cart-product">
           <table class="table table-responsive">
@@ -132,16 +37,23 @@
             </thead>
             <tbody>
               <tr
-              *ngFor="let produc of product">
+              *ngFor="let product of cart">
             
-            <td>{{produc.id}}</td>
-            <td>{{produc.title}}</td>
-            <td><img src="{{produc.image}}" alt=""></td>
-            <td>{{produc.description}}</td>
-            <td>{{produc.price}}</td>
-            <td>{{produc.quantity}}</td>
-            <td>{{produc.total}}</td>
-            <button (click)="removeProduct(produc)" class="btn btn-danger">delete</button>
+            <td>{{product.id}}</td>
+            <td>{{product.title}}</td>
+            <td><img src="{{product.image}}" alt=""></td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>
+              <div class="quantity">
+                <button class="btn btn-success" (click)="addQuantity(product.quantity) ">+</button>
+                <input type="number" class="form-control" [(ngModel)]="product.quantity"  min="1">
+                <button class="btn btn-warning">-</button>
+              </div>
+            </td>
+            
+            <td>{{product.quantity * product.price}}</td>
+            <button  class="btn btn-danger" >delete</button>
             </tr>
             </tbody>
           </table>
@@ -149,19 +61,6 @@
       </div>
     </ng-container>
 
-    <ng-container *ngIf="product.length==0">
-      <div class="container">
-        <div class="card">
-          <h4 class="card-title">Cart</h4>
-          <div class="center">
-            <img src="https://thumbs.dreamstime.com/b/shop-building-colorful-isolated-white-33822015.jpg" alt="" />
-            <h4>Empty Cart</h4>
-            <h6>Add new item</h6>
-            <button class="btn btn-success" routerLink="productList">Shop Now</button>
-          </div>
-        </div>
-        
-      </div>
-    </ng-container>
+ 
   </body>
 </html>

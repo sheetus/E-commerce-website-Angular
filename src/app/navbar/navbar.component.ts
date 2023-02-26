@@ -1,3 +1,4 @@
+import { CounterService } from './../services/counter.service';
 import { CartService } from './../services/cart.service';
 import { Component } from '@angular/core';
 
@@ -8,12 +9,14 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 public productNumber:number=0;
-  constructor(private cart:CartService){
+  constructor(private cart:CartService  , private Counter:CounterService ){
 
   }
   ngOnInit(){
-    this.cart.getProduct().subscribe((res:any)=>{
-this.productNumber=res.length;
-    })
+//     this.cart.getProduct().subscribe ((res : any)=>{
+// this.productNumber=res.length;
+// });
+this.Counter.counterVal.subscribe((res) =>((this.productNumber=res))
+    )
   }
 }
